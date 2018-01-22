@@ -38,8 +38,8 @@ U0 = 20.59
 
 data = np.genfromtxt("content/sägezahntab.txt", unpack=True)
 print("Sägezahn")
-#for i in range(int(data[0].size)):
-    #print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((2*U0)/(np.pi*data[0][i]))), r" \\", "\n", sep="", end="")
+for i in range(int(data[0].size)):
+    print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((2*U0)/(np.pi*data[0][i]))-1), r" \\", "\n", sep="", end="")
 print()
 params, covar = curve_fit(f, data[0], data[1])
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
@@ -58,8 +58,8 @@ plt.savefig("build/sägezahn.pdf")
 plt.clf()
 data = np.genfromtxt("content/dreiecktab.txt", unpack=True)
 print("Dreieck")
-#for i in range(int(data[0].size)):
-    #print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((2*U0)/(np.pi*data[0][i]))), r" \\", "\n", sep="", end="")
+for i in range(int(data[0].size)):
+    print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((8*U0)/(np.pi**2*(data[0][i])**2))-1), r" \\", "\n", sep="", end="")
 print()
 params, covar = curve_fit(f, data[0], data[1])
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
@@ -77,8 +77,8 @@ plt.savefig("build/dreieck.pdf")
 plt.clf()
 data = np.genfromtxt("content/rechtecktab.txt", unpack=True)
 print("Rechteck")
-#for i in range(int(data[0].size)):
-    #print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((2*U0)/(np.pi*data[0][i]))), r" \\", "\n", sep="", end="")
+for i in range(int(data[0].size)):
+    print(data[0][i], " & ", data[1][i], " & ", 100*np.abs(data[1][i]/((4*U0)/(np.pi*data[0][i]))-1), r" \\", "\n", sep="", end="")
 print()
 params, covar = curve_fit(f, data[0], data[1])
 uparams = unumpy.uarray(params, np.sqrt(np.diag(covar)))
